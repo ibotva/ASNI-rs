@@ -1,15 +1,18 @@
 use std::fmt;
 use crate::error::Error;
 
+#[derive(Debug)]
 pub struct Header {
     file_type: String,
     issuer_identification_number: String,
     aamva_version_number: String,
     jurisdiction_version_number: String,
     number_of_entries: String,
+    // A subfile type of DL means that its a drivers license, ID means state ID, and EN means enhanced drivers license
     subfile_type: String,
     offset: String,
-    length: String
+    length: String,
+    extra_characters: String
 }
 
 impl Header {
@@ -29,10 +32,9 @@ impl Header {
             return Err(Error::Formmating { violation: "Segment terminator not found".to_string() });
         };
 
-        let mut file_type: String = characters.drain(00..05).collect();
-        file_type.remove(4);
+        let file_type: String = characters.drain(00..05).collect();
 
-        if file_type != "ANSI".to_string() {
+        if file_type != "ANSI ".to_string() {
             return Err(Error::InvalidFileType);
         }
 
@@ -47,21 +49,32 @@ impl Header {
         let length: String = characters.drain(00..04).collect();
 
 
-        Ok(Header { file_type, issuer_identification_number, aamva_version_number, jurisdiction_version_number, number_of_entries, subfile_type, offset, length })
+        Ok(Header { 
+            extra_characters: characters,
+            file_type, 
+            issuer_identification_number, 
+            aamva_version_number, 
+            jurisdiction_version_number, 
+            number_of_entries, 
+            subfile_type, 
+            offset, 
+            length
+        })
     }    
 }
 
 impl fmt::Display for Header {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        writeln!(f, "
-        File Type:              {}
-        IIN:                    {}
-        AAMVA Version #:        {}
-        Jurisdiction Version #: {}
-        Number of Entries:      {}
-        Subfile Type:           {}
-        Offset:                 {}
-        length:                 {} 
-        ", &self.file_type, &self.issuer_identification_number, &self.aamva_version_number, &self.jurisdiction_version_number, &self.number_of_entries, &self.subfile_type, &self.offset, &self.length)
+        writeln!(f, "Header {{
+    File Type:               '{}'
+    Issuer Identification #: '{}'
+    AAMVA Version #:         '{}'
+    Jurisdiction Version #:  '{}'
+    Number of Entries:       '{}'
+    Subfile Type:            '{}'
+    Offset:                  '{}'
+    Length:                  '{}'
+    Extra Characters         '{}'
+}}", &self.file_type, &self.issuer_identification_number, &self.aamva_version_number, &self.jurisdiction_version_number, &self.number_of_entries, &self.subfile_type, &self.offset, &self.length, &self.extra_characters)
     }
 }
