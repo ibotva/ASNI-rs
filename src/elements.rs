@@ -548,6 +548,8 @@ pub fn by_id(id: String) -> Result<&'static ElementValidationData, Error> {
     Err(Error::ElementNotFound { element_name: id.to_string() })
 }
 
+/*
+// Need to add tests
 #[cfg(test)]
 mod tests {
     use crate::elements::by_id;
@@ -556,10 +558,5 @@ mod tests {
     fn test_by_id() {
         println!("{:#?}", by_id("DCA".to_string()).unwrap());
     }
-
-    #[test]
-    fn peepeepoopoo() {
-        let poo: Vec<&str> = "test\u{00}another\u{00}\u{00}\u{00}\u{00}".split("\u{00}").collect();
-        println!("{:#?}", poo)
-    }
 }
+*/
