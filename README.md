@@ -40,6 +40,8 @@ Use of this software is subject to [USC §2721: Prohibition on release and use o
 
 My interpretation of this bill is that before you can obtain the information from someones government document, you must obtain the written consent of the document holder, or eletronic consent with electronic signature. See [USC §2721: Definitions](https://uscode.house.gov/view.xhtml?hl=false&edition=prelim&path=%2Fprelim%40title18%2Fpart1%2Fchapter123&req=granuleid%3AUSC-prelim-title18-section2725&num=0&saved=L3ByZWxpbUB0aXRsZTE4L3BhcnQxL2NoYXB0ZXIxMjM%3D%7CZ3JhbnVsZWlkOlVTQy1wcmVsaW0tdGl0bGUxOC1jaGFwdGVyMTIz%7C%7C%7C0%7Cfalse%7Cprelim) for how they define consent.
 
+You are also subject to state laws, do your research before using this software.
+
 ## Contribution & Issues
 If you would like to contribute please make a pull request, if you would like for me to help with your problem, please submit an issue.
 
