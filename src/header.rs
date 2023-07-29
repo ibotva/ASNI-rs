@@ -62,19 +62,3 @@ impl Header {
         })
     }    
 }
-
-impl fmt::Display for Header {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        writeln!(f, "Header {{
-    File Type:               '{}'
-    Issuer Identification #: '{}'
-    AAMVA Version #:         '{}'
-    Jurisdiction Version #:  '{}'
-    Number of Entries:       '{}'
-    Subfile Type:            '{}'
-    Offset:                  '{}'
-    Length:                  '{}'
-    Extra Characters         '{}'
-}}", &self.file_type, &self.issuer_identification_number, &self.aamva_version_number, &self.jurisdiction_version_number, &self.number_of_entries, &self.subfile_type, &self.offset, &self.length, &self.extra_characters)
-    }
-}
