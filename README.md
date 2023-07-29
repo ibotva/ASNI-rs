@@ -1,5 +1,5 @@
 # AAMVA PDF417 DATA Reader for Drivers Licenses and Identification Cards written in rust
-Rust crate for reading ASNI files from a pdf147 barcode.
+Rust crate for reading ASNI files from a pdf147 barcode. This crate is not at a stable version yet, as it may encounter design overhauls as I learn more about rust.
 **Breaking changes may happen without notice until a better design implementation has been created, this is not a stable release.**
 
 ## Usage
@@ -10,6 +10,7 @@ aamva-rs = { git = "https://github.com/ibotva/aamva-rs", branch = "main" }
 
 ## Basic Example
 > This example uses the `rxing` crate to decode the picture of the pdf147 barcode, and then passes the contents to the ASNI struct.
+> Bare in mind, I had to crop the pdf417 code to size and it has to be a good picture of the code.
 
 ```rust
 use asni_rs::documents::{DriversLicense, Reader};
