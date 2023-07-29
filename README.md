@@ -5,20 +5,32 @@ Rust crate for reading ASNI files from a pdf147 barcode.
 ## Usage
 ```
 [dependencies]
-my-secret-crate = { git = "https://github.com/ibotva/ASNI-rs", branch = "main" }
+aamva-rs = { git = "https://github.com/ibotva/aamva-rs", branch = "main" }
 ```
 
 ## Basic Example
 > This example uses the `rxing` crate to decode the picture of the pdf147 barcode, and then passes the contents to the ASNI struct.
 
 ```rust
-let file_name = "./img.jpeg";
+use asni_rs::documents::{DriversLicense, Reader};
+use rxing::BarcodeFormat::PDF_417;
 
-let results = rxing::helpers::detect_multiple_in_file(file_name).expect("decode error");
-    
-for result in results {
-    let reader = ASNI::from(result.getText().to_string()).unwrap();
-    println!("{:#?}", reader);
+fn main() {
+    match rxing::helpers::detect_in_file("./path_to_img.jpeg", Some(PDF_417)) {
+        Ok(res) => {
+            match DriversLicense::new(res.to_string()) {
+                Ok((header, drivers_license)) => {
+                    println!("{:#?}", header);
+                    println!("{:#?}", drivers_license);
+                },
+                Err(err) => println!("Drivers License Error: {}", err),
+            }
+            
+        },
+        Err(err) => println!("PDF417 Barcode Error: {}", err),
+    };
+}
+
 }
 ```
 
