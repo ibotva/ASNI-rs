@@ -19,6 +19,7 @@ mod tests {
         for result in results {
             let (header, dl) = DriversLicense::new(result.getText().to_string()).unwrap();
             println!("{:#?}", header);
+            println!("{:#?}", dl);
         }
     }
 }

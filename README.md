@@ -8,8 +8,13 @@ Rust crate for reading ASNI files from a PDF417 barcode.
 aamva-rs = { git = "https://github.com/ibotva/aamva-rs", branch = "main" }
 ```
 
-## Basic Example
+# Examples
+<details>
+<summary>Basic Example</summary>
+<br>
+
 > This example uses the `rxing` crate to decode the picture of the pdf147 barcode, and then passes the contents to the ASNI struct.
+>
 > Bare in mind, I had to crop the pdf417 code to size and it has to be a good picture of the code.
 
 ```rust
@@ -34,6 +39,22 @@ fn main() {
 
 }
 ```
+</details>
+
+<details>
+<summary>Parsing Individual Elements</summary>
+<br>
+coming soon
+</details>
+
+<details>
+<summary>Creating Data Elements</summary>
+<br>
+coming soon
+</details>
+
+## Basic Example
+
 
 ## Disclosure
 Use of this software is subject to [USC §2721: Prohibition on release and use of certain personal information from State motor vehicle records](https://uscode.house.gov/view.xhtml?path=/prelim@title18/part1/chapter123&edition=prelim). Please see section b, permissible uses before using this software. This software was made for research purposes. The owner of the software claims no responsibility, in any form, for the usage of the software.
