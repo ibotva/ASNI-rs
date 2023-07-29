@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 chrono = "0.4.26"
 snafu = "0.7.5"
+lazy_static = "1.4.0"
 
 [dev-dependencies]
 rxing = "0.4.8"
