@@ -53,9 +53,6 @@ coming soon
 coming soon
 </details>
 
-## Basic Example
-
-
 ## Disclosure
 Use of this software is subject to [USC §2721: Prohibition on release and use of certain personal information from State motor vehicle records](https://uscode.house.gov/view.xhtml?path=/prelim@title18/part1/chapter123&edition=prelim). Please see section b, permissible uses before using this software. This software was made for research purposes. The owner of the software claims no responsibility, in any form, for the usage of the software.
 
